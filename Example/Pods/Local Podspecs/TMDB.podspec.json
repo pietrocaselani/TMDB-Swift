@@ -1,0 +1,35 @@
+{
+  "name": "TMDB",
+  "version": "0.1.0",
+  "summary": "A Swift wrapper around the TMDB API using Moya.",
+  "description": "A Swift library using Moya for easily access the TMDB API",
+  "homepage": "https://github.com/pietrocaselani/TMDB-Swift",
+  "license": {
+    "type": "UNLICENSE",
+    "file": "UNLICENSE"
+  },
+  "authors": {
+    "Pietro Caselani": "pc1992@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/pietrocaselani/TMDB-Swift.git",
+    "tag": "0.1.0"
+  },
+  "social_media_url": "https://twitter.com/pietropc_",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "source_files": "TMDB/**/*",
+  "dependencies": {
+    "Moya-ObjectMapper/RxSwift": [
+      "2.3.2"
+    ],
+    "Moya": [
+      "8.0.5"
+    ],
+    "SwiftLint": [
+      "0.21.0"
+    ]
+  }
+}

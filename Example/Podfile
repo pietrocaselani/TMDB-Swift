@@ -1,5 +1,7 @@
 use_frameworks!
 target 'TMDB_Tests' do
+  platform :osx, '10.11'
+  inherit! :search_paths
   pod 'TMDB', :path => '../'
   
   

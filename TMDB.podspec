@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'TMDB'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of TMDB.'
+  s.summary          = 'A Swift wrapper around the TMDB API using Moya.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,26 +17,21 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = "A Swift library using Moya for easily access the TMDB API"
 
-  s.homepage         = 'https://github.com/Pietro Caselani/TMDB'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Pietro Caselani' => 'pietro.caselani@arctouch.com' }
-  s.source           = { :git => 'https://github.com/Pietro Caselani/TMDB.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.homepage         = 'https://github.com/pietrocaselani/TMDB-Swift'
+  s.license          = { :type => 'UNLICENSE', :file => 'UNLICENSE' }
+  s.author           = { 'Pietro Caselani' => 'pc1992@gmail.com' }
+  s.source           = { :git => 'https://github.com/pietrocaselani/TMDB-Swift.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/pietropc_'
 
   s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.10'
 
-  s.source_files = 'TMDB/Classes/**/*'
+  s.source_files = 'TMDB/**/*'
   
-  # s.resource_bundles = {
-  #   'TMDB' => ['TMDB/Assets/*.png']
-  # }
+  s.dependency 'Moya-ObjectMapper/RxSwift', '2.3.2'
+  s.dependency 'Moya', '8.0.5'
+  s.dependency 'SwiftLint', '0.21.0'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
