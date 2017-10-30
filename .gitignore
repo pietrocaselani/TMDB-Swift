@@ -27,8 +27,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 Pods
-Podfile.lock
-Gemfile.lock
+*.lock
 .idea
 *.xcworkspace
 *.zip

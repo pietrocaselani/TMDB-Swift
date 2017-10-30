@@ -12,6 +12,6 @@
 
 #import "TMDB.h"
 
-FOUNDATION_EXPORT double TMDBVersionNumber;
-FOUNDATION_EXPORT const unsigned char TMDBVersionString[];
+FOUNDATION_EXPORT double TMDBSwiftVersionNumber;
+FOUNDATION_EXPORT const unsigned char TMDBSwiftVersionString[];
 

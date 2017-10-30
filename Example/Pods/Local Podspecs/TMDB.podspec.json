@@ -16,6 +16,7 @@
     "tag": "0.1.0"
   },
   "social_media_url": "https://twitter.com/pietropc_",
+  "module_name": "TMDBSwift",
   "platforms": {
     "ios": "8.0",
     "osx": "10.10"

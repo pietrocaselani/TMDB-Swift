@@ -1,6 +1,6 @@
 import XCTest
 import Moya
-import TMDB
+import TMDBSwift
 
 final class TMDBConfigurationTest: XCTestCase {
 

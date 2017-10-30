@@ -1,5 +1,5 @@
 import Foundation
-import TMDB
+import TMDBSwift
 
 private func toObject(data: Data) -> [String: AnyObject] {
   let options = JSONSerialization.ReadingOptions(rawValue: 0)

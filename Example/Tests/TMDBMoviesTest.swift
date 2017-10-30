@@ -1,5 +1,5 @@
 import XCTest
-import TMDB
+import TMDBSwift
 
 final class TMDBMoviesTest: XCTestCase {
 
