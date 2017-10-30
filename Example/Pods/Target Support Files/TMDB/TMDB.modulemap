@@ -1,6 +1,0 @@
-framework module TMDBSwift {
-  umbrella header "TMDB-umbrella.h"
-
-  export *
-  module * { export * }
-}
