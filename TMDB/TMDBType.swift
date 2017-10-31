@@ -3,13 +3,12 @@ import Moya
 public protocol TMDBType: TargetType {}
 
 public extension TMDBType {
+
   public var baseURL: URL { return TMDB.baseURL }
 
   public var method: Moya.Method { return .get }
 
-  public var parameterEncoding: ParameterEncoding { return URLEncoding.default }
-
-  public var task: Task { return .request }
+  public var headers: [String : String]? { return nil }
 
   public var sampleData: Data { return "".utf8Encoded }
 }

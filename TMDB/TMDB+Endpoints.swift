@@ -2,36 +2,41 @@ import Moya
 import Result
 
 extension TMDB {
-  public var configuration: RxMoyaProvider<ConfigurationService> {
+  public var configuration: MoyaProvider<ConfigurationService> {
     return createProvider(forTarget: ConfigurationService.self)
   }
 
-  public var movies: RxMoyaProvider<Movies> {
+  public var movies: MoyaProvider<Movies> {
     return createProvider(forTarget: Movies.self)
   }
 
-  public var shows: RxMoyaProvider<Shows> {
+  public var shows: MoyaProvider<Shows> {
     return createProvider(forTarget: Shows.self)
   }
 
-  public var episodes: RxMoyaProvider<Episodes> {
+  public var episodes: MoyaProvider<Episodes> {
     return createProvider(forTarget: Episodes.self)
   }
 
-  private func createProvider<T: TMDBType>(forTarget target: T.Type) -> RxMoyaProvider<T> {
+  private func createProvider<T: TMDBType>(forTarget target: T.Type) -> MoyaProvider<T> {
     let plugins = [PluginType]()
 
     let requestClosure = createRequestClosure(forTarget: target)
 
-    return RxMoyaProvider<T>(requestClosure: requestClosure, plugins: plugins)
+    return MoyaProvider<T>(requestClosure: requestClosure, plugins: plugins)
   }
 
   private func createRequestClosure<T: TMDBType>(forTarget target: T.Type) -> MoyaProvider<T>.RequestClosure {
     let requestClosure = { (endpoint: Endpoint<T>, done: MoyaProvider.RequestResultClosure) in
-      guard let url = endpoint.urlRequest?.url else {
+      guard let request = try? endpoint.urlRequest() else {
         done(.failure(MoyaError.requestMapping(endpoint.url)))
         return
       }
+
+			guard let url = request.url else {
+				done(.failure(MoyaError.requestMapping(endpoint.url)))
+				return
+			}
 
       var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
 
@@ -39,15 +44,16 @@ extension TMDB {
       queryItems.append(URLQueryItem(name: "api_key", value: self.apiKey))
       components?.queryItems = queryItems
 
-      var newRequest = endpoint.urlRequest
-      newRequest?.url = components?.url
+      var newRequest = request
 
-      guard let validRequest = newRequest else {
-        done(.failure(MoyaError.requestMapping(endpoint.url)))
-        return
-      }
+			guard let newURL = components?.url else {
+				done(.failure(MoyaError.requestMapping(endpoint.url)))
+				return
+			}
 
-      done(.success(validRequest))
+      newRequest.url = newURL
+
+      done(.success(newRequest))
     }
 
     return requestClosure

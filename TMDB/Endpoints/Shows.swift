@@ -5,6 +5,7 @@ public enum Shows {
 }
 
 extension Shows: TMDBType {
+
   public var path: String {
     switch self {
     case .images(let showId):
@@ -12,7 +13,9 @@ extension Shows: TMDBType {
     }
   }
 
-  public var parameters: [String : Any]? { return nil }
+	public var task: Task {
+		return .requestPlain
+	}
 
   public var sampleData: Data {
     switch self {

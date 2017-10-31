@@ -1,0 +1,5 @@
+included:
+  - TMDB
+  - Example/Tests
+excluded:
+  - Example/Pods

@@ -12,7 +12,9 @@ extension Episodes: TMDBType {
     }
   }
 
-  public var parameters: [String : Any]? { return nil }
+	public var task: Task {
+		return .requestPlain
+	}
 
   public var sampleData: Data {
     switch self {

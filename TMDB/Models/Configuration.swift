@@ -1,10 +1,3 @@
-import ObjectMapper
-
-public final class Configuration: ImmutableMappable {
-
+public final class Configuration: Codable {
   public let images: ImagesConfiguration
-
-  public init(map: Map) throws {
-    self.images = try map.value("images")
-  }
 }
