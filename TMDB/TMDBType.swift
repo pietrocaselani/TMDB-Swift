@@ -8,7 +8,7 @@ public extension TMDBType {
 
   public var method: Moya.Method { return .get }
 
-  public var headers: [String : String]? { return nil }
+  public var headers: [String: String]? { return nil }
 
   public var sampleData: Data { return "".utf8Encoded }
 }
