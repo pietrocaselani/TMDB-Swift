@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'TMDB/**/*'
   
-  s.dependency 'Moya/RxSwift', '10.0.0'
+  s.dependency 'Moya/RxSwift', '11.0.2'
   s.dependency 'SwiftLint', '0.23.1'
 
 end
