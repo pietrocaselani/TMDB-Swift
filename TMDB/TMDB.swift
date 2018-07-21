@@ -20,7 +20,7 @@ public final class TMDB {
 	}
 
 	private func createRequestClosure<T: TMDBType>(forTarget target: T.Type) -> MoyaProvider<T>.RequestClosure {
-		let requestClosure = { (endpoint: Endpoint<T>, done: MoyaProvider.RequestResultClosure) in
+		let requestClosure = { (endpoint: Endpoint, done: MoyaProvider<T>.RequestResultClosure) in
 			guard let request = try? endpoint.urlRequest(), let url = request.url else {
 				done(.failure(MoyaError.requestMapping(endpoint.url)))
 				return
