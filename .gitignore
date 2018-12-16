@@ -49,3 +49,5 @@ info.plist
 .vscode
 .env
 */Index/
+vendor/
+.bundle
