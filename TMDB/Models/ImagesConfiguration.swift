@@ -1,4 +1,4 @@
-public final class ImagesConfiguration: Codable {
+public final class ImagesConfiguration: Hashable, Codable {
   public let secureBaseURL: String
   public let backdropSizes: [String]
   public let posterSizes: [String]
@@ -19,4 +19,15 @@ public final class ImagesConfiguration: Codable {
 		self.posterSizes = try container.decode([String].self, forKey: .posterSizes)
 		self.stillSizes = try container.decode([String].self, forKey: .backdropSizes)
 	}
+
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(secureBaseURL)
+    hasher.combine(backdropSizes)
+    hasher.combine(posterSizes)
+    hasher.combine(stillSizes)
+  }
+
+  public static func == (lhs: ImagesConfiguration, rhs: ImagesConfiguration) -> Bool {
+    return lhs.hashValue == rhs.hashValue
+  }
 }
