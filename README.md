@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/TMDB.svg?style=flat)](http://cocoapods.org/pods/TMDB)
 [![Platform](https://img.shields.io/cocoapods/p/TMDB.svg?style=flat)](http://cocoapods.org/pods/TMDB)
 
+**This project was moved to the [CouchTracker repo](https://github.com/pietrocaselani/CouchTracker)**
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
